@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resource :session
-  resources :passwords, param: :token
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -13,4 +11,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root to: "home#index"
+  get "login" => "sessions#new", as: :login
+  post "login" => "sessions#create"
+  delete "logout" => "sessions#destroy", as: :logout
+  get "signup" => "users#new", as: :signup
+  post "users" => "users#create", as: :users
+  resources :passwords, param: :token
 end
