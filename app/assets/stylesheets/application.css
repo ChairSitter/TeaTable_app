@@ -8,3 +8,10 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+/* Custom styles */
+
+body {
+    margin: 0;
+    padding: 0;
+}

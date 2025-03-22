@@ -24,10 +24,14 @@
 
   <body>
     <header>
-      <div>
-        <h1>TeaTable</h1>
-        <%= image_tag "teaTable.jpg" %>
-      </div>
+        <div id="title-container">
+          <h1>TeaTable</h1>
+          <p>A relaxing space to share your thoughts</p>
+        </div>
+        <div id="image-container">
+          <div id="color-fade"></div>
+          <%= image_tag "teaTable.jpg" %>
+        </div>
     </header>
     <%= yield %>
     <footer></footer>

@@ -2,7 +2,7 @@
 <%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
 
 <h2>
-    Welcome to TeaTable, a relaxing space to share your thoughts!
+    Log in to TeaTable
 </h2>
 <%= form_with url: root_path do |form| %>
   <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
