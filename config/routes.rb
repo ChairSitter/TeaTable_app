@@ -32,6 +32,10 @@ Rails.application.routes.draw do
   post "comments" => "comments#create", as: :comments
   delete "comments/:id" => "comments#destroy"
 
+  get "friend_requests" => "friend_requests#index", as: :friend_requests
+  post "friend_requests" => "friend_requests#create"
+  delete "friend_requests/:id" => "friend_requests#destroy"
+
   get "passwords/new" => "passwords#new", as: :new_password
   resources :passwords, param: :token
 end
