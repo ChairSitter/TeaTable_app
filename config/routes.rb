@@ -29,6 +29,9 @@ Rails.application.routes.draw do
   patch "posts/:id" => "posts#update"
   delete "posts/:id" => "posts#destroy"
 
+  post "comments" => "comments#create", as: :comments
+  delete "comments/:id" => "comments#destroy"
+
   get "passwords/new" => "passwords#new", as: :new_password
   resources :passwords, param: :token
 end
