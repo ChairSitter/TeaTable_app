@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   # profile page
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    # @posts = @user.posts
   end
 
   private
