@@ -21,6 +21,14 @@ Rails.application.routes.draw do
   patch "users/:id" => "users#update"
   delete "users/:id" => "users#destroy"
 
+  get "feed" => "posts#index", as: :feed
+  get "posts/new" => "posts#new", as: :new_post
+  post "posts" => "posts#create", as: :posts
+  get "posts/:id" => "posts#show", as: :post
+  get "posts/:id/edit" => "posts#edit", as: :edit_post
+  patch "posts/:id" => "posts#update"
+  delete "posts/:id" => "posts#destroy"
+
   get "passwords/new" => "passwords#new", as: :new_password
   resources :passwords, param: :token
 end
