@@ -13,10 +13,29 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find_by(id: params[:id])
+    if @user.update(user_params)
+      redirect_to "/"
+    else
+      render :edit
+    end
+  end
+
   # profile page
   def show
     @user = User.find(params[:id])
-    # @posts = @user.posts
+    @posts = @user.posts
+  end
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect to "/"
   end
 
   private
