@@ -13,9 +13,7 @@
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+    <%= favicon_link_tag 'favicon.ico', type: 'image/png' %>
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
@@ -34,7 +32,6 @@
         </div>
     </header>
     <%= yield %>
-    <p>TeaTable &copy; 2025</p>
     <footer>
       <div id="footer-links">
         <%= link_to image_tag("teadrop.png"), feed_path %>
@@ -45,7 +42,12 @@
         <% end %>
         <%= link_to image_tag("teabag.png"), new_post_path %>
         <%= link_to image_tag("teafriends.png"), friendships_path %>
-        <%= link_to image_tag("logout.png"), logout_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}  %>
+
+        <% if Current.user %>
+          <%= link_to image_tag("logout.png"), logout_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}  %>
+        <% else %>
+          <%= link_to image_tag("login.png"), root_path %>
+        <% end %>
       </div>
     </footer>
   </body>
