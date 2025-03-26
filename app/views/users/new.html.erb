@@ -1,11 +1,13 @@
-<h2>
-    Create an Account to take your seat at the TeaTable!
-</h2>
-<%= form_for(@user) do |f| %>
-    <%= f.text_field :username, :placeholder => "Username" %>
-    <%= f.email_field :email_address, :placeholder => "Email" %>
-    <%= f.password_field :password, :placeholder => "Password" %>
-    <%= f.submit "Create an Account", class: "btn-submit" %>
-<% end %>
+<main>
+    <h2>
+        Create an Account to take your seat at the TeaTable!
+    </h2>
+    <%= form_for(@user) do |f| %>
+        <%= f.text_field :username, :placeholder => "Username" %>
+        <%= f.email_field :email_address, :placeholder => "Email" %>
+        <%= f.password_field :password, :placeholder => "Password" %>
+        <%= f.submit "Create an Account", class: "btn-submit" %>
+    <% end %>
 
-<%= link_to "Log in", root_path %>
+    <%= link_to "Log in", root_path %>
+</main>

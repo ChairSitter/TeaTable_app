@@ -35,16 +35,18 @@
     </header>
     <%= yield %>
     <footer>
+      <div id="footer-links">
+        <%= link_to "Feed", feed_path %>
+        <% if Current.user %>
+          <%= link_to "Profile", profile_path(Current.user) %>
+        <% else %>
+          <%= link_to "Profile", root_path  %>
+        <% end %>
+        <%= link_to "New Post", new_post_path %>
+        <%= link_to "Friendships", friendships_path %>
+        <%= link_to "Logout", logout_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}  %>
+      </div>
       <p>TeaTable &copy; 2025</p>
-      <%= link_to "Feed", feed_path %>
-       <% if Current.user %>
-        <%= link_to "Profile", profile_path(Current.user) %>
-      <% else %>
-        <%= link_to "Profile", root_path  %>
-      <% end %>
-      <%= link_to "New Post", new_post_path %>
-      <%= link_to "Friendships", friendships_path %>
-      <%= link_to "Logout", logout_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}  %>
     </footer>
   </body>
 </html>
