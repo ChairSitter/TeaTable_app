@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
   def index
-    @friendships = Friendship.where(user_id: current_user.id)
+    @friendships = Friendship.where(user_id: Current.user.id)
   end
   def destroy
     friendship = Friendship.find(params[:id])
