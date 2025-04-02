@@ -12,6 +12,31 @@
             <%= f.text_area :bio %>
         </p>
         <p>
+            <%= image_tag("avatars/man.png") %>
+            <%= f.radio_button :profile_picture, "avatars/man.png" %>
+            <%= f.label :profile_picture, "Person with tie" %>
+        </p>
+        <p>
+            <%= image_tag("avatars/chicken.png") %>
+            <%= f.radio_button :profile_picture, "avatars/chicken.png" %>
+            <%= f.label :profile_picture, "Chicken" %>
+        </p>
+                <p>
+            <%= image_tag("avatars/scuba.png") %>
+            <%= f.radio_button :profile_picture, "avatars/scuba.png" %>
+            <%= f.label :profile_picture, "Scuba diver" %>
+        </p>
+        <p>
+            <%= image_tag("avatars/astronaut.png") %>
+            <%= f.radio_button :profile_picture, "avatars/astronaut.png" %>
+            <%= f.label :profile_picture, "Astronaut" %>
+        </p>
+        <p>
+            <%= image_tag("avatars/woman.png") %>
+            <%= f.radio_button :profile_picture, "avatars/woman.png" %>
+            <%= f.label :profile_picture, "Woman" %>
+        </p>
+        <p>
             <%= f.submit %>
         </p>
     <% end %>
