@@ -1,6 +1,9 @@
 <main>
     <div>
-        post.title
-        post.body
+        <h2>
+            <%= @post.title %>
+        </h2>
+        <%= @post.body %>
+        Post by <%= @post.user.username %>
     </div>
 </main>

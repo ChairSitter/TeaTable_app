@@ -2,4 +2,14 @@
     <h2>
         Friends
     </h2>
+    <p>
+        <%= link_to "Add Friend", new_friendship_path %>
+    </p>
+    <ul>
+        <% @friendships.each do |friendship| %>
+            <li>
+                <%= link_to friendship.friend.username, user_path(friendship.friend) %>
+                <%= link_to "Unfriend", friendship_path(friendship), method: :delete, data: { confirm: "Are you sure?" } %>
+            </li>
+        <% end %>
 </main>

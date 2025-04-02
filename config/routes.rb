@@ -37,6 +37,8 @@ Rails.application.routes.draw do
   delete "friend_requests/:id" => "friend_requests#destroy"
 
   get "friendships" => "friendships#index", as: :friendships
+  post "friendships" => "friendships#create"
+  get "friendships/new" => "friendships#new", as: :new_friendship
   delete "friendships/:id" => "friendships#destroy"
 
   get "passwords/new" => "passwords#new", as: :new_password

@@ -1,6 +1,6 @@
 <main>
     <h2>
-        Profile page for <%= @user.username %>
+        <%= @user.username %>'s Profile
     </h2>
     <%= link_to "Edit Profile", edit_profile_path %>
     <p>
@@ -11,11 +11,9 @@
     <h3>
         Posts
     </h3>
-    <ul>
         <% @user.posts.each do |post| %>
-            <li>
                 <%= link_to post.title, post_path(post) %>
-            </li>
+                <%= post.body %>
         <% end %>
 </main>
 
