@@ -8,5 +8,11 @@
         </p>
         <%= @post.body %>
         Post by <%= @post.user.username %>
+        <p>
+            <%= link_to "Edit Post", edit_post_path(@post) %>
+        </p>
+        <p>
+            <%= link_to "Delete Post", delete_post_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}  %>
+        </p>
     </div>
 </main>

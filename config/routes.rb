@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   get "posts/:id" => "posts#show", as: :post
   get "posts/:id/edit" => "posts#edit", as: :edit_post
   patch "posts/:id" => "posts#update"
-  delete "posts/:id" => "posts#destroy"
+  delete "posts/:id" => "posts#destroy", as: :delete_post
 
   post "comments" => "comments#create", as: :comments
   delete "comments/:id" => "comments#destroy"
