@@ -13,7 +13,9 @@ class FriendRequestsController < ApplicationController
       redirect_to profile_path(current_user), alert: "Friend request not saved."
     end
   end
-
+  def new
+    @friend_request = FriendRequest.new
+  end
   def destroy
     friend_request = FriendRequest.find(params[:id])
     friend_request.destroy

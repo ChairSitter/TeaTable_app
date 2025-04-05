@@ -2,4 +2,16 @@
     <h2>
         Feed for <%= Current.user.username %>
     </h2>
+    <p>
+        <%= link_to "Create Post", new_post_path %>
+    </p>
+    <ul>
+        <% @posts.each do |post| %>
+            <li>
+                <%= link_to post.title, post_path(post) %>
+                <%= post.body %>
+                Post by <%= post.user.username %>
+            </li>
+        <% end %>
+    </ul>
 </main>
