@@ -28,8 +28,9 @@ Rails.application.routes.draw do
   get "posts/:id/edit" => "posts#edit", as: :edit_post
   patch "posts/:id" => "posts#update"
   delete "posts/:id" => "posts#destroy", as: :delete_post
-
-  post "comments" => "comments#create", as: :comments
+  resources :posts do
+    resources :comments, only: [ :create ]
+  end
   delete "comments/:id" => "comments#destroy"
 
   get "friend_requests" => "friend_requests#index", as: :friend_requests
