@@ -5,13 +5,18 @@
     <p>
         <%= link_to "Create Post", new_post_path %>
     </p>
-    <ul>
         <% @posts.each do |post| %>
-            <li>
-                <%= link_to post.title, post_path(post) %>
-                <%= post.body %>
-                Post by <%= post.user.username %>
-            </li>
+                <div>
+                    <%= image_tag post.user.profile_picture %>
+                </div>
+                <p>
+                    Post by <%= post.user.username %>
+                </p>
+                <p>
+                    <%= link_to post.title, post_path(post) %>
+                </p>
+                <p>
+                    <%= post.body %>
+                </p>
         <% end %>
-    </ul>
 </main>

@@ -38,3 +38,4 @@ Things you may want to cover:
 * https://www.flaticon.com/free-icons/astronaut" Astronaut icons created by Freepik - Flaticon
 * https://www.flaticon.com/free-icons/diver" Diver icons created by justicon - Flaticon
 * https://www.flaticon.com/free-icons/woman" Woman icons created by Freepik - Flaticon
+* https://www.flaticon.com/free-icons/green-tea" Green tea icons created by monkik - Flaticon
