@@ -31,7 +31,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments, only: [ :create ]
   end
-  delete "comments/:id" => "comments#destroy"
+  delete "comments/:id" => "comments#destroy", as: :delete_comment
 
   get "friend_requests" => "friend_requests#index", as: :friend_requests
   post "friend_requests" => "friend_requests#create"

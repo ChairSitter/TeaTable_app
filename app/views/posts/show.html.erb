@@ -9,10 +9,10 @@
         <%= @post.body %>
         Post by <%= @post.user.username %>
         <p>
-            <%= link_to "Edit Post", edit_post_path(@post) %>
+            <%= button_to "Edit Post", edit_post_path(@post.id), method: :get %>
         </p>
         <p>
-            <%= link_to "Delete Post", post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
+            <%= button_to "Delete Post", delete_post_path(@post.id), method: :delete, data: { confirm: "Are you sure?" } %>
         </p>
     </div>
     <h2>Comments</h2>
@@ -27,9 +27,8 @@
         </div>
     <% end %>
 
-    <ul>
         <% @post.comments.each do |comment| %>
-            <li><%= comment.content %></li>
+            <%= comment.content %>
+            <%= button_to "Delete Comment", delete_comment_path(comment.id), method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
-    </ul>
 </main>
