@@ -34,12 +34,12 @@ Rails.application.routes.draw do
   delete "comments/:id" => "comments#destroy", as: :delete_comment
 
   get "friend_requests" => "friend_requests#index", as: :friend_requests
+  get "friend_requests/new" => "friend_requests#new", as: :new_friend_request
   post "friend_requests" => "friend_requests#create"
   delete "friend_requests/:id" => "friend_requests#destroy"
 
   get "friendships" => "friendships#index", as: :friendships
   post "friendships" => "friendships#create"
-  get "friendships/new" => "friendships#new", as: :new_friendship
   delete "friendships/:id" => "friendships#destroy"
 
   get "passwords/new" => "passwords#new", as: :new_password

@@ -12,6 +12,7 @@ class FriendshipsController < ApplicationController
   end
   def new
     @friendship = Friendship.new
+    @users = User.all
   end
   def destroy
     friendship = Friendship.find(params[:id])
