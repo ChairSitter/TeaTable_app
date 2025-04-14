@@ -1,2 +1,13 @@
 <main>
+    #NEEDS WORK
+    <h2>
+        <%= @user.username %>'s Friend Requests
+    </h2>
+    <% @friend_requests.each do |friend_request| %>
+        <div class="friend-request">
+            <%= link_to friend_request.sender_id.username, user_path(friend_request.sender) %>
+            <%= link_to "Accept", accept_friend_request_path(friend_request), method: :post, data: { confirm: "Are you sure?" } %>
+            <%= link_to "Decline", decline_friend_request_path(friend_request), method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+    <% end %>  
 </main>
