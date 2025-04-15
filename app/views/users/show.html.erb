@@ -10,8 +10,15 @@
     <%= link_to "Edit Profile", edit_profile_path %>
     <p>
         <%= @user.bio %>
+    </p>
     <p>
         <%= @user.username %> has <%= @user.posts.count %> posts.
+    </p>
+    <p>
+        <%= @user.username %> has <%= @user.friends.count %> friends.
+    </p>
+    <p>
+        <%= link_to "Create a new post", new_post_path %>
     </p>
     <h3>
         Posts

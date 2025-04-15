@@ -5,6 +5,9 @@
     <p>
         <%= link_to "Add Friend", new_friend_request_path %>
     </p>
+    <p>
+        <%= link_to "Pending Friend Requests", friend_requests_path %>
+    </p>
         <% @friendships.each do |friendship| %>
                 <%= link_to friendship.friend.username, user_path(friendship.friend) %>
                 <%= link_to "Unfriend", friendship_path(friendship), method: :delete, data: { confirm: "Are you sure?" } %>
