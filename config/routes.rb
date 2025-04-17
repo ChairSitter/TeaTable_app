@@ -40,7 +40,7 @@ Rails.application.routes.draw do
 
   get "friendships" => "friendships#index", as: :friendships
   post "friendships" => "friendships#create", as: :create_friendship
-  delete "friendships/:id" => "friendships#destroy"
+  delete "friendships/:id" => "friendships#destroy", as: :delete_friendship
 
   get "passwords/new" => "passwords#new", as: :new_password
   resources :passwords, param: :token

@@ -15,7 +15,7 @@
         <%= @user.username %> has <%= @user.posts.count %> posts.
     </p>
     <p>
-        <%= @user.username %> has <%= @user.friends.count %> friends.
+        <%= @user.username %> has <%= @user.all_friendships.count %> friends.
     </p>
     <p>
         <%= link_to "Create a new post", new_post_path %>

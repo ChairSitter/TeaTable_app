@@ -5,8 +5,14 @@
     <% @friend_requests.each do |friend_request| %>
         <div class="friend-request">
             <%= link_to @users.find(friend_request.sender_id).username, profile_path(@users.find(friend_request.sender_id)) %>
-            <%= link_to "Accept", create_friendship_path(friend_request), method: :post, data: { confirm: "Are you sure?" } %>
-            <%= link_to "Decline", delete_friend_request_path(friend_request), method: :delete, data: { confirm: "Are you sure?" } %>
+            <%= form_with url: create_friendship_path, method: :post, local: true do |form| %>
+                <%= form.hidden_field :receiver_id, value: friend_request.receiver_id %>
+                <%= form.hidden_field :sender_id, value: friend_request.sender_id %>
+                <%= form.submit "Accept" %>
+            <% end %>
+            <%= form_with url: delete_friend_request_path(friend_request), method: :delete, local: true do |form| %>
+                <%= form.submit "Decline" %>    
+            <% end %>
         </div>
     <% end %>  
 </main>
