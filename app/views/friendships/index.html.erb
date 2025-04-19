@@ -15,7 +15,7 @@
             <%= button_to "Unfriend", delete_friendship_path(friendship), method: :delete, data: { confirm: "Are you sure?" } %>
         <% else %>
             <%= image_tag friendship.user.profile_picture %>
-            <%= link_to friendship.user.username, profile_path(friendship.friend) %>
+            <%= link_to friendship.user.username, profile_path(friendship.user) %>
             <%= button_to "Unfriend", delete_friendship_path(friendship), method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
     <% end %>
