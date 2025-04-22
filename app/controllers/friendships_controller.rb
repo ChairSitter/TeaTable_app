@@ -1,9 +1,7 @@
 class FriendshipsController < ApplicationController
   def index
-    @friendships = Friendship.where(user_id: Current.user.id).or(
-      Friendship.where(friend_id: Current.user.id)
-    )
     @user = User.find(Current.user.id)
+    @friendships = @user.all_friendships
   end
   def create
     request = FriendRequest.where(sender_id: params[:sender_id], receiver_id: params[:receiver_id]).first

@@ -12,6 +12,6 @@ class User < ApplicationRecord
   normalizes :email_address, with: ->(e) { e.strip.downcase }
 
   def all_friendships
-    Friendship.where(user_id: self.id).or(Friendship.where(friend_id: self.id))
+    Friendship.where(user_id: Current.user).or(Friendship.where(friend_id: Current.user))
   end
 end

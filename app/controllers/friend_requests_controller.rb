@@ -6,6 +6,12 @@ class FriendRequestsController < ApplicationController
   end
 
   def create
+    if FriendRequest.exists?(sender_id: Current.user.id, receiver_id: params[:friend_request][:receiver_id]) ||
+        FriendRequest.exists?(sender_id: params[:friend_request][:receiver_id], receiver_id: Current.user.id)
+        redirect_to profile_path(Current.user), alert: "Friend request already exists."
+      return
+    end
+
     friend_request = FriendRequest.new(friend_request_params)
     friend_request.sender_id = Current.user.id
     friend_request.receiver_id = params[:friend_request][:receiver_id]

@@ -5,6 +5,8 @@
     <p>
         <% if @user.profile_picture %>
             <%= image_tag(@user.profile_picture) %>
+        <% else %>
+            <%= image_tag("default_profile_picture.png") %>
         <% end %>
     </p>
     <%= link_to "Edit Profile", edit_profile_path %>
@@ -15,7 +17,7 @@
         <%= @user.username %> has <%= @user.posts.count %> posts.
     </p>
     <p>
-        <%= @user.username %> has <%= @user.all_friendships.count %> friends.
+        <%= @user.username %> has <%= @user.friends.count %> friends.
     </p>
     <p>
         <%= link_to "Create a new post", new_post_path %>

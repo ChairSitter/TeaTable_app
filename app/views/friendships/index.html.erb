@@ -10,11 +10,19 @@
     </p>
     <% @friendships.each do |friendship| %>
         <% if friendship.user_id === Current.user.id %>
-            <%= image_tag friendship.friend.profile_picture %>
+            <% if friendship.friend.profile_picture %>
+                <%= image_tag friendship.friend.profile_picture %>
+            <% else %>
+                <%= image_tag "default_profile_picture.png" %> 
+            <% end %>
             <%= link_to friendship.friend.username, profile_path(friendship.friend) %>
             <%= button_to "Unfriend", delete_friendship_path(friendship), method: :delete, data: { confirm: "Are you sure?" } %>
         <% else %>
-            <%= image_tag friendship.user.profile_picture %>
+            <% if friendship.user.profile_picture %>
+                <%= image_tag friendship.user.profile_picture %>
+            <% else %>
+                <%= image_tag "default_profile_picture.png" %>
+            <% end %>
             <%= link_to friendship.user.username, profile_path(friendship.user) %>
             <%= button_to "Unfriend", delete_friendship_path(friendship), method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
