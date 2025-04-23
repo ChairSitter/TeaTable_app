@@ -14,10 +14,10 @@
         <%= @user.bio %>
     </p>
     <p>
-        <%= @user.username %> has <%= @user.posts.count %> posts.
+        Posts: <%= @user.posts.count %>
     </p>
     <p>
-        <%= @user.username %> has <%= @user.friends.count %> friends.
+        Friends: <%= @friendships.count %>
     </p>
     <p>
         <%= link_to "Create a new post", new_post_path %>

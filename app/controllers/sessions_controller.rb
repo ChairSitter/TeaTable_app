@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   def create
     if user = User.authenticate_by(params.permit(:email_address, :password))
       start_new_session_for user
-      redirect_to profile_path(user), notice: "Welcome back, #{user.username}!"
+      redirect_to profile_path(user)
     else
       redirect_to root_path, alert: "Try another email address or password."
     end

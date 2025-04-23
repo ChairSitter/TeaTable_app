@@ -30,6 +30,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
+    @friendships = @user.all_friendships
   end
 
   def destroy
