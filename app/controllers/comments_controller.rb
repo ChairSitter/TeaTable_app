@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     if comment.save
       redirect_to post_path(comment.post_id)
     else
-      redirect_to post_path(comment.post_id), alert: "Comment not saved."
+      redirect_to post_path(comment.post_id), confirm: "Comment not saved."
     end
   end
 

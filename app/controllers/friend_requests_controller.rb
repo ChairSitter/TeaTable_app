@@ -8,7 +8,7 @@ class FriendRequestsController < ApplicationController
   def create
     if FriendRequest.exists?(sender_id: Current.user.id, receiver_id: params[:friend_request][:receiver_id]) ||
         FriendRequest.exists?(sender_id: params[:friend_request][:receiver_id], receiver_id: Current.user.id)
-        redirect_to profile_path(Current.user), alert: "Friend request already exists."
+        redirect_to profile_path(Current.user), confirm: "Friend request already exists."
       return
     end
 
@@ -19,7 +19,7 @@ class FriendRequestsController < ApplicationController
     if friend_request.save
       redirect_to profile_path(Current.user)
     else
-      redirect_to profile_path(Current.user), alert: "Friend request not saved."
+      redirect_to profile_path(Current.user), confirm: "Friend request not saved."
     end
   end
   def new

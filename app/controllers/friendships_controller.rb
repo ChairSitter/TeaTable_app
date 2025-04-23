@@ -8,9 +8,9 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.new(user_id: params[:sender_id], friend_id: params[:receiver_id])
     if @friendship.save
       request.destroy
-      redirect_to profile_path(params[:receiver_id]), notice: "Friendship created!"
+      redirect_to profile_path(params[:receiver_id]), confirm: "Friendship created!"
     else
-      redirect_to profile_path(params[:receiver_id]), alert: "Unable to create friendship."
+      redirect_to profile_path(params[:receiver_id]), confirm: "Unable to create friendship."
     end
   end
   def destroy
