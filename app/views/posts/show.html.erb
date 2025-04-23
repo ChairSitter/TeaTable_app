@@ -29,6 +29,12 @@
 
         <% @post.comments.each do |comment| %>
             <%= comment.content %>
+            <p>
+                <%= image_tag(comment.user.profile_picture) %>
+            </p>
+            <p>
+                Comment by <%= comment.user.username %>
+            </p>
             <%= button_to "Delete Comment", delete_comment_path(comment.id), method: :delete, data: { confirm: "Are you sure?" } %>
         <% end %>
 </main>
