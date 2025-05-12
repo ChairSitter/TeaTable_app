@@ -2,6 +2,19 @@ require 'rails_helper'
 
 RSpec.describe "FriendRequests", type: :request do
   describe "GET /index" do
-    pending "add some examples (or delete) #{__FILE__}"
+    it "works! (now write some real specs)" do
+      get friend_requests_path
+      expect(response).to have_http_status(200)
+    end
+  end
+  describe "POST /create" do
+    let(:user) { User.create(name: "Test User", email: "email@ok.com", password: "password") }
+    let(:friend) { User.create(name: "Friend User", email: "email@ok.com", password: "password") }
+    it "creates a friend request" do
+      post friend_requests_path, params: { friend_request: { sender_id: user.id, receiver_id: friend.id } }
+      expect(response).to redirect_to(friend_requests_path)
+      follow_redirect!
+      expect(response.body).to include("Friend request was successfully created.")
+    end
   end
 end
